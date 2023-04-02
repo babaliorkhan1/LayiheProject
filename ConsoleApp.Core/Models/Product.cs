@@ -11,7 +11,7 @@ namespace ConsoleApp.Core.Models
     {
         public double price { get; set; }
 
-        private int _id;
+        private static int _id;
 
         public ProductCategory category { get; set; }
 

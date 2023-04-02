@@ -46,7 +46,7 @@ namespace consoleApp.Service.Services
             Console.WriteLine("enter the id of the restoran");
             foreach (var item in repositery.GetAll())
             {
-                Console.WriteLine($"name:{item.Name}  category:{item.category} craetedtime:{item.createtime}");
+                Console.WriteLine($"Id{item.id}    name:{item.Name}  category:{item.category} craetedtime:{item.createtime}");
             }
             int.TryParse(Console.ReadLine(), out int select2);
             Restoran restoran=await  repositery.GetAsync(x => x.id == select2);
@@ -65,7 +65,7 @@ namespace consoleApp.Service.Services
         {
             foreach (var item in repositery.GetAll())
             {
-                Console.WriteLine($"name:{item.Name}  category:{item.category} craetedtime:{item.createtime}");
+                Console.WriteLine($"ID:{item.id} name:{item.Name}  category:{item.category} craetedtime:{item.createtime}");
             }
         }
 

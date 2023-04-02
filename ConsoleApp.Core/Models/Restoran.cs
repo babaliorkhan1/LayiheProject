@@ -9,7 +9,7 @@ namespace ConsoleApp.Core.Models
 {
     public class Restoran:BaseModel
     {
-        private int _id;
+        private static int _id;
 
         public RestoranCategory category { get; set; }
 

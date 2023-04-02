@@ -28,19 +28,22 @@ namespace consoleApp.Service.Services
             switch (choose)
             {
                 case 1:
-                    product.category=ProductCategory.Blue; break;
+                    product.category=ProductCategory.Blue; 
+                    break;
                 case 2:
-                    product.category=ProductCategory.Green; break;
+                    product.category=ProductCategory.Green; 
+                    break;
                 case 3: 
-                    product.category=ProductCategory.Red; break;
+                    product.category=ProductCategory.Red;
+                    break;
 
                 default:
                     break;
             }
-            Console.WriteLine("where you wanna add this prodyct?");
+            Console.WriteLine("where you wanna add this product?");
             foreach (var item in repooo.GetAll())
             {
-                Console.WriteLine($"name:{item.Name} id:{item.id}");
+                Console.WriteLine($"id:{item.id} name:{item.Name} ");
             }
             int.TryParse(Console.ReadLine(), out int choice6);
             Restoran restoran= await repooo.GetAsync(x=>x.id==choice6);
@@ -50,10 +53,10 @@ namespace consoleApp.Service.Services
 
         public async void Delete()
         {
-            Console.WriteLine("where you wanna delete this prodyct?");
+            Console.WriteLine("where you wanna delete this product?");
             foreach (var item in repooo.GetAll())
             {
-                Console.WriteLine($"name:{item.Name} id:{item.id}");
+                Console.WriteLine($" id:{item.id}  name:{item.Name}  Price{item.category}");
             }
             int.TryParse(Console.ReadLine(), out int choice7);
             Restoran restoran = await repooo.GetAsync(x => x.id == choice7);
@@ -119,16 +122,16 @@ namespace consoleApp.Service.Services
                             restoran.products[i].Name = Console.ReadLine(); break;
                         case 2:
                             Console.WriteLine("choose new category");
-                            Console.WriteLine((int)ProductCategory.Blue+":"+ProductCategory.Blue);
-                            Console.WriteLine((int)ProductCategory.Red + ":" + ProductCategory.Red);
+                            Console.WriteLine((int)ProductCategory.Red+":"+ProductCategory.Red);
+                            Console.WriteLine((int)ProductCategory.Blue + ":" + ProductCategory.Blue);
                             Console.WriteLine((int)ProductCategory.Green + ":" + ProductCategory.Green);
                             int choice=Convert.ToInt32(Console.ReadLine());
                             switch (choice)
                             {
                                 case 1:
-                                    restoran.products[i].category = ProductCategory.Blue; break;
-                                case 2:
                                     restoran.products[i].category = ProductCategory.Red; break;
+                                case 2:
+                                    restoran.products[i].category = ProductCategory.Blue; break;
                                 case 3:
                                     restoran.products[i].category = ProductCategory.Green; break;
                                 default:
